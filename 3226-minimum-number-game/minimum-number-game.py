@@ -1,19 +1,12 @@
 class Solution:
     def numberGame(self, nums: List[int]) -> List[int]:
         arr = []
-    
-        while nums:
-            # Alice removes minimum
-            alice_pick = min(nums)
-            nums.remove(alice_pick)
-            
-            # Bob removes minimum
-            bob_pick = min(nums)
-            nums.remove(bob_pick)
-            
-            # Append to arr: Bob first, Alice next
+        nums.sort()
+        for i in range(0,len(nums), 2):
+            alex_pick=nums[i]
+            bob_pick=nums[i+1]
             arr.append(bob_pick)
-            arr.append(alice_pick)
-            
+            arr.append(alex_pick)
         return arr
+
             
