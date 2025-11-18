@@ -1,10 +1,17 @@
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        new=[]
-        for i in nums:
-            x=pow(i,2)
-            new.append(x)
-        new.sort()
-        return new
+        n=len(nums)
+        res=[0]*n
 
-        
+        left,right=0,n-1
+        pos=n-1
+        while left<=right:
+            if nums[left]**2>nums[right]**2:
+                res[pos]=nums[left]**2
+                left+=1
+            else:
+                res[pos]=nums[right]**2
+                right-=1
+
+            pos-=1
+        return res
