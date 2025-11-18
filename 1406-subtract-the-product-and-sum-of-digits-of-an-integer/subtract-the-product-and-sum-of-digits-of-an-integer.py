@@ -1,10 +1,11 @@
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        s =str(n)
-        a=0
-        m=1
-        for i in s:
-            a+=int(i)
-            m*=int(i)
-        return m-a
+        a = 0
+        m = 1
+        while n > 0:
+            digit = n % 10
+            a += digit
+            m *= digit
+            n //= 10
+        return m - a
 
