@@ -3,10 +3,9 @@ class Solution:
         stack = []
 
         for ch in s:
-            if ch.isdigit():
-                if stack:      
-                    stack.pop()
-            else:
+            if ch.isalpha():
                 stack.append(ch)
-
-        return "".join(stack)
+            else:
+                stack.pop()
+        output="".join(stack)
+        return output
