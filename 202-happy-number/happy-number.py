@@ -5,5 +5,9 @@ class Solution:
             if n in seen:
                 return False
             seen.add(n)
-            n=sum(int(d)**2 for d in str(n))
+            total=0
+            while n>0:
+                total+=(n%10)**2
+                n=n//10
+            n=total
         return True
