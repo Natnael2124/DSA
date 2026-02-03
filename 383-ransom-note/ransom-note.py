@@ -1,0 +1,16 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        from collections import Counter
+        r=Counter(ransomNote)
+        m=Counter(magazine)
+        output=False
+        length=len(ransomNote)
+        for i in range(length):
+            if r[ransomNote[i]]<=m[ransomNote[i]]:
+                output=True
+            else:
+                output=False
+                break
+        return output
+
+        
