@@ -6,7 +6,7 @@ class Solution:
         if len(s)!= len(t):
             return False
         for i in range(len(s)):
-            if count1[s[i]]==count2[s[i]] and count1[t[i]]==count2[t[i]]  :
+            if count1[s[i]]==count2[s[i]] :
                 continue
             else:
                 return False
