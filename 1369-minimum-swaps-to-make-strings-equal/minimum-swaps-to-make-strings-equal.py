@@ -1,0 +1,40 @@
+class Solution:
+    def minimumSwap(self, s1: str, s2: str) -> int:
+        count1=Counter(s1)
+        count2=Counter(s2)
+        count=count1+count2
+        xy=0
+        yx=0
+        add=xy+yx
+        total=0
+        
+        if count['x']%2!=0 or count['y'] % 2 !=0:
+            return -1
+        xy=0
+        yx=0
+        add=xy+yx
+        total=0
+
+        for i in range(len(s1)):
+
+            if s1[i]=='x'and s2[i]=='y':
+                xy+=1
+
+            elif s1[i]=='y' and s2[i]=='x':
+                yx+=1
+
+        return xy//2 + yx//2+2*(xy%2)
+
+        '''    if xy==1 and yx==1:
+                total+=2
+                xy=0
+                yx=0
+            elif xy==2 :
+                xy=0
+                total+=1
+            elif yx==2:
+                total+=1
+                yx=0
+
+        return total'''
+        
