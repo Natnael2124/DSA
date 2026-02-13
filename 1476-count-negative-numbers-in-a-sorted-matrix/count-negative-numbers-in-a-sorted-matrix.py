@@ -10,4 +10,14 @@ class Solution:
                 else:
                     count+=1
         return count
+
+        """
+        count=0
+        for i in grid:
+            for j in i:
+                if j<0:
+                    count+=1
+                else:
+                    break 
+        """
         
