@@ -3,13 +3,13 @@ class Solution:
         length=0
         j=0
         i=0
-        collect=[]
+        collect=set()
         current=0
         
         while j < len(s):
         
             if s[j] not in collect:
-                collect.append(s[j])
+                collect.add(s[j])
                 j+=1
                 current+=1
             else:
