@@ -1,10 +1,16 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        if n == 1:
-            return x
-        elif n == 0:
-            return 1
-        elif n < 1:
-            n = -(n)
-            x= 1/x
-        return x **n
+        def poww(x,n):
+            if n == 0:
+                return 1
+            
+            half = poww(x,n//2)
+
+            if n % 2 == 0:
+                return half * half 
+            else:
+                return half * half * x
+        if n < 0:
+            return 1/poww(x,-n)
+        else:
+            return poww(x,n)
