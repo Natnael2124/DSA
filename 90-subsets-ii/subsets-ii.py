@@ -1,5 +1,6 @@
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
         res = []
         def sub(i,num):
             if num not in res:
@@ -16,12 +17,12 @@ class Solution:
                 num.pop()
                 
 
-
-
         sub(0,[])
+        """
         res.sort()
         p = []
         for i in res:
             if i not in p:
                 p.append(i)
-        return p
+                """
+        return res
