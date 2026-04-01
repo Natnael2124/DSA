@@ -4,7 +4,6 @@ class Solution:
         res = []
         def sub(i,num):
             if num not in res:
-               # sore = sorted(num)
                 res.append(num[:])
 
             if i == len(nums) :
@@ -18,11 +17,5 @@ class Solution:
                 
 
         sub(0,[])
-        """
-        res.sort()
-        p = []
-        for i in res:
-            if i not in p:
-                p.append(i)
-                """
+        
         return res
