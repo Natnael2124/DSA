@@ -4,8 +4,8 @@ class Solution:
         res = []
         def sub(i,num):
             if num not in res:
-                sore = sorted(num)
-                res.append(sore)
+               # sore = sorted(num)
+                res.append(num[:])
 
             if i == len(nums) :
                 return
