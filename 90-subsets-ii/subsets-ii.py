@@ -2,17 +2,14 @@ class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         res = []
-        def sub(i,num):
-            if num not in res:
-                res.append(num[:])
+        def sub(start,num):
+            res.append(num[:])
 
-            if i == len(nums) :
-                return
-            
-            for j in range(i,len(nums)):
-                num.append(nums[j])
-                i += 1
-                sub(i,num)
+            for i in range(start,len(nums)):
+                if i > start and nums[i] == nums[i-1]:
+                    continue
+                num.append(nums[i])
+                sub(i + 1,num)
                 num.pop()
                 
 
