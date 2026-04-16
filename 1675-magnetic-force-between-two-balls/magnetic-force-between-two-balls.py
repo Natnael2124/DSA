@@ -2,7 +2,7 @@ class Solution:
     def maxDistance(self, position: List[int], m: int) -> int:
         position.sort()
         low = 1
-        high = position[-1] - position[0]
+        high = ceil(position[-1]/(m-1)) 
 
         def checker(x):
             count = m - 1
