@@ -1,24 +1,26 @@
 class Solution:
     def isBipartite(self, graph: list[list[int]]) -> bool:
         n = len(graph)
-        colors = [-1] * n 
-        
+        color = [2] * n
+
         for i in range(n):
-            if colors[i] != -1:
+            if color[i] != 2:
                 continue
-            
+
             queue = deque([i])
-            colors[i] = 0
-            
+            color[i] = 0
+
             while queue:
                 u = queue.popleft()
-                
+
                 for v in graph[u]:
-                    if colors[v] == -1:
-                        colors[v] = 1 - colors[u]
+
+                    if color[v] == 2:
+                        color[v] = 1 - color[u]
                         queue.append(v)
-                    elif colors[v] == colors[u]:
-               
+
+                    elif color[v] == color[u]:
                         return False
-                        
+
         return True
+
