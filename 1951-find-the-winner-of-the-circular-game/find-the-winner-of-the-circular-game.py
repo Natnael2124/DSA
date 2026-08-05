@@ -1,12 +1,14 @@
 class Solution:
-    def findTheWinner(self, n: int, k: int) -> int:
-        def helper(n):
-            if n == 1:
-                return 0
+    def findTheWinner(self, n: int, k: int) -> int: 
+        circle = list(range(1,n+1))
+
+        start_indx = 0
+
+        while len(circle) > 1:
+            removal_indx =  (start_indx + k - 1) % len(circle)
+
+            circle.pop(removal_indx)
+
+            start_indx = removal_indx
             
-            return (helper(n-1)+k)%n
-
-        return helper(n) + 1
-
-                
-                
+        return circle[0]
