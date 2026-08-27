@@ -1,17 +1,22 @@
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-    
-        n, m = len(mat), len(mat[0])
-    
-        sums = range(n + m - 1)
-        diag= [[mat[i][s - i] for i in range(n) if 0 <= s - i < m] for s in sums]
-        print(diag)
-        ans=[]
-        for i in range(len(diag)):
-            if i%2==0:
-                for j in range(len(diag[i])):
-                    ans.append(diag[i][len(diag[i])-1-j])
+        d = {}
+
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                if i + j not in d:
+                    d[i+j] = [mat[i][j]]
+                else:
+                    d[i+j].append(mat[i][j])
+        
+        ans = []
+
+        for digsum in d:
+            if digsum % 2 == 0:
+                ans.extend(d[digsum][::-1])
             else:
-                for j in range(len(diag[i])):
-                    ans.append(diag[i][j])
+                ans.extend(d[digsum])
         return ans
+
+
+        
